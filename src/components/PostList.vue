@@ -1,4 +1,5 @@
 <template>
+    <!-- <div> -->
     <div v-if="posts.length > 0">
         <h3>Список постов</h3>
         <transition-group name="post-list">
@@ -6,6 +7,7 @@
                 v-for="post in posts" 
                 :key="post.id" 
                 :post="post"
+                @click="$router.push(`/posts/${post.id}`)"
                 @remove="$emit('remove', post)"
             >
             </post-item>
